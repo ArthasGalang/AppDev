@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Home Page 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Home Page</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <p>
+      This is the First Page (Home Page) <br>
+      1. By clicking "Authenticate" will allow access to both "Show Object" and "Add to Object" buttons function. Otherwise it will not work. <br>
+      2. By clicking "Unauthenticate" will revoke the access to both "Show Object" and "Add to Object" buttons function. <br>
+      3. By clicking "Show Object" will allow the user to see the array. <br>
+      4. By clicking "Add to Object" will allow the user to add additional element to the array.<br>
+    </p>
+    <ion-button (click) = "goWithAuthenticated()">authenticate</ion-button>
+    <ion-button (click) = "goWithUnauthenticated()">unauthenticate</ion-button>
+    <ion-button (click) = "showData()">Show Object</ion-button>
+    <ion-button (click) = "fetchData()"> Add to Object</ion-button>
+    <!-- <ion-button (click) = "fetchData()"> pindutin mo ko</ion-button> -->
+    <p>{{data}}</p>
+    {{data}}
+
+    <!-- <div *ngIf = "isLoading">
+      {{LoadingText}}
+    </div> -->
+    <div *ngIf = "beforeShow">
+      {{addingArray}}
+    </div>
+    
+  </div>
+</ion-content>
