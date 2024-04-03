@@ -1,0 +1,29 @@
+
+ <ion-content class="top:">
+  <ion-button (click)="logOut()">Log Out</ion-button>
+ </ion-content>
+
+
+<ion-content class="top">
+  
+
+<ion-card>
+  <ion-card-content>
+
+    <strong>Capitals of Countries<br></strong>
+
+    <div *ngFor="let News of news;; let i = index;">
+    <ion-list>
+      <div *ngIf="i < 15">
+          <ion-list>
+            {{i+1}}. {{News.capital}}
+          </ion-list>    
+   </div>
+    </ion-list>
+   </div>   
+  </ion-card-content>
+</ion-card>
+</ion-content>
+
+
+

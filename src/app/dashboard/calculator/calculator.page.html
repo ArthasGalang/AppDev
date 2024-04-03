@@ -1,0 +1,55 @@
+<ion-content>
+    <ion-card class="calculator">
+
+      <ion-input type="text" [(ngModel)]="output" readonly></ion-input>
+      <br><strong>History</strong><br>
+      <ion-input type="text" [(ngModel)]="input" disabled></ion-input>
+    <ion-card>
+      <ion-button (click)="a7()">7</ion-button>
+      <ion-button (click)="a8()">8</ion-button>
+      <ion-button (click)="a9()">9</ion-button>
+      <ion-button (click)="div()">/</ion-button>
+      <br>
+      <ion-button (click)="a4()">4</ion-button>
+      <ion-button (click)="a5()">5</ion-button>
+      <ion-button (click)="a6()">6</ion-button>
+      <ion-button (click)="mul()">*</ion-button>
+      <br>
+      <ion-button (click)="a1()">1</ion-button>
+      <ion-button (click)="a2()">2</ion-button>
+      <ion-button (click)="a3()">3</ion-button>
+      <ion-button (click)="sub()">-</ion-button>
+      <br>
+      <ion-button (click)="clr()">C</ion-button>
+      <ion-button (click)="a0()">0</ion-button>
+      <ion-button (click)="res()">=</ion-button>
+      <ion-button (click)="add()">+</ion-button>
+      <br>
+    </ion-card>
+    </ion-card>
+
+    <!-- Debugging purposes -->
+    <!-- 
+      hold1
+    {{hold1}}
+    <br>
+    hold2
+    {{hold2}}
+    <br>
+    num1
+    {{num1}}
+    <br>
+    num2
+    {{num2}}
+    <br>
+    result
+    {{result}}
+    <br>
+    output
+    {{output}}
+    <br>
+    input
+    {{input}}
+     -->
+  </ion-content>
+  
