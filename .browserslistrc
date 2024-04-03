@@ -6,7 +6,7 @@
 # https://angular.io/guide/browser-support
 
 # You can see what browsers were selected by your queries by running:
-#   npx browserslist
+# npx browserslist
 
 Chrome >=79
 ChromeAndroid >=79
