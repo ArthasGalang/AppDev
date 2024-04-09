@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Page 2
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Page 2</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <p style="text-align:center;">
+    This is the First Page (Home Page) <br>
+    1. By clicking "Go By Link" will always return blank but link has to be the same route as "Go By Event" button. <br>
+    2. By clicking "Go By Event" without clicking the "Authentication" button should not allow it to navigate to the 3rd page. <br>
+    3. By clicking "Authorization" will allow the "Go By event" button to navigate to the 3rd page. <br>
+    4. Each Page has a lifecycle events that will print out its corresponding action on developer tools: <br>
+    Click F12 > Console Tab for reference (look at right side)
+    <br>
+    <ion-button href = "third-page/">go by link</ion-button>
+    <br>
+    <ion-button (click) = "goToPage3()"> go by event</ion-button>
+    <br>
+    <ion-button (click) = "goWithAuthenticated()">authentication</ion-button>
+  </p>
+</ion-content>
