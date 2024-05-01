@@ -1,0 +1,42 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>signup</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Sign up</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content>
+
+
+<ion-content id="container">
+<ion-card>
+  <ion-card-header>
+    <h1><b>Sign up</b></h1>
+    <hr>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-card>
+      <br>
+    <ion-input type="text" [(ngModel)]="semail" > Email </ion-input>
+    <br>
+    <ion-input type="Password"[(ngModel)]="spass" > Password </ion-input>
+      <br>
+      <ion-input type="Password"[(ngModel)]="confpass" > Confirm Password </ion-input>
+      <br>
+    </ion-card>
+
+  </ion-card-content>
+  
+<ion-button (click)="Signup">Sign up</ion-button>
+<br>
+<br>
+<ion-card-subtitle>Already have an account? <u><a href="/signin">Sign in here</a></u></ion-card-subtitle>
+<br>
+</ion-card>
+
+</ion-content>
