@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-signin',
@@ -7,15 +8,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./signin.page.scss'],
 })
 export class SigninPage implements OnInit {
-email:string ="";
-pass:string ="";
-  constructor(private router: Router) { }
+email:string ='';
+pass:string ='';
+  constructor(private router: Router, private auth: AuthService) { }
 
   ngOnInit() {
   }
 
-  Signin(){
-    
+ async Signin(){
+  this.auth.lemail = this.email;
+  this.auth.lpass = this.pass;
+    this.auth.login();
   }
 
 }
