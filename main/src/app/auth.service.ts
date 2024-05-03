@@ -48,7 +48,7 @@ export class AuthService {
 
     if (!semail.includes('@')) 
     {
-      this.presentToast('Incorrect email format', 3000);
+      this.presentToast('Incorrect email format');
       return;
     }
 
@@ -85,7 +85,7 @@ export class AuthService {
        {
       const user = userCredential.user;
       this.isLoggedIn = true
-      this.presentAlert('Success', 'Login Success');
+      this.presentToast('Logged in');
       
       this.router.navigate(['home']);
        }
@@ -108,28 +108,19 @@ export class AuthService {
     )
   }
 
-  async presentAlert(header: string, message: string) 
-  {
-    const alert = await this.alertController.create
-  (
-    {
+  async presentAlert(header: string, message: string){
+    const alert = await this. alertController.create({
       header: header,
       message: message,
-      buttons: ['OK']
-    }
-  );
+      buttons: ['Ok']
+    });
     await alert.present();
   }
-
-  async presentToast(message: string, duration: number)
-  {
-    const toast = await this.toastController.create
-  (
-    {
+  async presentToast(message: string) {
+    const toast = await this.toastController.create({
       message: message,
-      duration: duration
-    }
-  );
+      duration: 2000
+    });
     toast.present();
   }
   

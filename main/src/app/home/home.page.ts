@@ -37,19 +37,23 @@ export class HomePage {
         this.userList[index].Equip = user.Equip;
     }
 }
-save() {
-
+async save() {
   this.user.dateOb = new Date();
 
-  if (this.user.id) {
-      this.homeService.tryUpdate(this.user);
-      this.presentAlert('Update', 'Equipment Updated');
-  } else {
-      this.homeService.tryAdd(this.user);
+  try {
+    if (this.user.id) {
+      await this.homeService.tryUpdate(this.user);
+      this.presentToast('Saved');
+    } else {
+      await this.homeService.tryAdd(this.user);
       this.presentAlert('Success', 'Equipment Added');
+    }
+    this.user = new User();
+    this.users();
+  } catch (error) {
+    console.error('Error during save:', error);
+    this.presentAlert('Error', 'Equipment not saved.');
   }
-  this.user = new User();
-  this.users();
 }
   async users(){
     this.isLoading = true;
@@ -74,6 +78,7 @@ save() {
           cssClass: 'secondary',
           handler: () => {
             console.log('Delete cancelled');
+            this.presentToast('Delete cancelled');
           }
         }, {
           text: 'Delete',
@@ -84,12 +89,15 @@ save() {
             this.users();
             this.user = new User();
             this.isLoading = false;
+            this.presentToast('Equipment deleted successfully');
           }
         }
       ]
     });
     await alert.present();
-}
+  }
+  
+
 
 
 
@@ -108,5 +116,12 @@ async presentAlert(header: string, message: string){
     buttons: ['Ok']
   });
   await alert.present();
+}
+async presentToast(message: string) {
+  const toast = await this.toastController.create({
+    message: message,
+    duration: 2000
+  });
+  toast.present();
 }
 }
