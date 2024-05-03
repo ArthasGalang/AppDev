@@ -64,13 +64,32 @@ save() {
     this.user = user;
   }
   async delete(user: User){
-    this.isLoading = true;
-    await this.homeService.tryDelete(user);
-    this.presentAlert('Delete', 'Equipment Deleted');
-    this.users();
-    this.user = new User();
-    this.isLoading = false;
-  }
+    const alert = await this.alertController.create({
+      header: 'Confirm Delete',
+      message: 'Are you sure you want to delete this equipment?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Delete cancelled');
+          }
+        }, {
+          text: 'Delete',
+          handler: async () => {
+            this.isLoading = true;
+            await this.homeService.tryDelete(user);
+            this.presentAlert('Delete', 'Equipment Deleted');
+            this.users();
+            this.user = new User();
+            this.isLoading = false;
+          }
+        }
+      ]
+    });
+    await alert.present();
+}
 
 
 
