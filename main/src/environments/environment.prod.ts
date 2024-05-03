@@ -1,11 +1,11 @@
 export const environment = {
   production: true,
   firebaseConfig: {
-    apiKey: "AIzaSyA0IrgF5uPICJbRrt_QDCBUUwy8kDpEX2Q",
-    authDomain: "galangpwa.firebaseapp.com",
-    projectId: "galangpwa",
-    storageBucket: "galangpwa.appspot.com",
-    messagingSenderId: "728221601368",
-    appId: "1:728221601368:web:55c8f1995de6e1e265842d"
+    apiKey: "AIzaSyCL_d9qi5OFcGh5nQDJsvtF6g_oh0dnOzw",
+    authDomain: "galangact10.firebaseapp.com",
+    projectId: "galangact10",
+    storageBucket: "galangact10.appspot.com",
+    messagingSenderId: "144770971172",
+    appId: "1:144770971172:web:a77d2295ef3f4a0fff0ab1"
   }
 };
