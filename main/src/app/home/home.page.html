@@ -16,16 +16,26 @@
   <div>
     <ion-card class="custom-card">
       <ion-item>
-        <ion-label position="floating">FirstName</ion-label>
-        <ion-input type="text" [(ngModel)]="user.firstName"></ion-input>
+        <ion-label >Type: </ion-label>
+        <ion-input type="text" [(ngModel)]="user.Type"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="floating">MiddleName</ion-label>
-        <ion-input type="text" [(ngModel)]="user.middleName"></ion-input>
+        <ion-label >Name: </ion-label>
+        <ion-input type="text" [(ngModel)]="user.Name"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="floating">LastName</ion-label>
-        <ion-input type="text" [(ngModel)]="user.lastName"></ion-input>
+        <ion-label>Level: </ion-label>
+        <ion-input type="text" [(ngModel)]="user.Level"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Date: </ion-label>
+        <ion-input type="text" [(ngModel)]="user.dateOb" disabled></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Equipped: </ion-label>
+        <ion-input type="text" [(ngModel)]="user.Equip" disabled>
+          <ion-toggle [(ngModel)]="user.Equip" (ionChange)="toggleActive(user)"></ion-toggle>
+        </ion-input>  
       </ion-item>
 
       <ion-row justify-content-center class="ion-margin-top">
@@ -54,11 +64,11 @@
       </thead>
       <tbody>
         <tr *ngFor="let user of userList">
-          <td>{{user.firstName}}</td>
-          <td>{{user.middleName}}</td>
-          <td>{{user.lastName}}</td>
-          <td></td>
-          <td></td>
+          <td>{{user.Type}}</td>
+          <td>{{user.Name}}</td>
+          <td>{{user.Level}}</td>
+          <td>{{ user.dateOb | date: 'yyyy-MM-dd' }} - {{ user.dateOb }}</td>
+          <td><ion-toggle [(ngModel)]="user.Equip" (ionChange)="toggleActive(user)"></ion-toggle></td>
           <td><ion-button color="warning" (click)="edit(user)">Edit</ion-button></td>
         </tr>
       </tbody>

@@ -8,7 +8,7 @@ import { initializeApp } from 'firebase/app';
 import { environment } from 'src/environments/environment';
 import { User, iUser } from './home.model';
 import { HomeService } from './home.service';
-
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -30,20 +30,27 @@ export class HomePage {
 
 
 
-
-  save(){
-
-    if (this.user.id){
-      this.homeService.tryUpdate(this.user);
-      this.presentAlert('Update', 'User Updated');
-    } else {
-      this.homeService.tryAdd(this.user);
-      this.presentAlert('Success', 'User Added');
+  toggleActive(user: iUser) {
+    user.Equip = !user.Equip;
+    const index = this.userList.findIndex(u => u.id === user.id);
+    if (index !== -1) {
+        this.userList[index].Equip = user.Equip;
     }
-    this.user= new User();
-    this.users();
-  }
+}
+save() {
 
+  this.user.dateOb = new Date();
+
+  if (this.user.id) {
+      this.homeService.tryUpdate(this.user);
+      this.presentAlert('Update', 'Equipment Updated');
+  } else {
+      this.homeService.tryAdd(this.user);
+      this.presentAlert('Success', 'Equipment Added');
+  }
+  this.user = new User();
+  this.users();
+}
   async users(){
     this.isLoading = true;
     this.userList = await this.homeService.getUsers();
@@ -59,7 +66,7 @@ export class HomePage {
   async delete(user: User){
     this.isLoading = true;
     await this.homeService.tryDelete(user);
-    this.presentAlert('Delete', 'User Deleted');
+    this.presentAlert('Delete', 'Equipment Deleted');
     this.users();
     this.user = new User();
     this.isLoading = false;

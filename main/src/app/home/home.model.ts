@@ -1,37 +1,38 @@
+import { DatePipe } from '@angular/common';
+
+
 export class User {
     id: string;
-    firstName: string;
-    middleName: string;
-    lastName: string;
-    // ratings: number;
-    // isCompleted: boolean = false;
-    // released: Date;
-    // genres: string[] = [];
+    Type: string;
+    Name: string;
+    Level: number;
+    dateOb: Date;
+    Equip: boolean;
   
-    constructor(id: string = '', firstName: string = '', middleName: string = '', lastName: string =''
-    // ratings: number = 0, released: Date = new Date(), isCompleted: boolean = false, genres: string[] = []
+    constructor(id: string = '', 
+    Type: string = '', 
+    Name: string = '', 
+    Level: number = 0, 
+    dateOb: Date = new Date(), // Initialize dateOb with current date
+    Equip: boolean = false,
     ) {
         this.id = id;
-        this.firstName = firstName;
-        this.middleName = middleName;
-        this.lastName = lastName;
-        // this.ratings = ratings;
-        // this.isCompleted = isCompleted;
-        // this.released = released;
-        // this.genres = genres;
+        this.Type = Type;
+        this.Name = Name;
+        this.Level = Level;
+        this.dateOb = dateOb; // Assign the initialized dateOb
+        this.Equip = Equip;
     }
-  }
+}
   
   
   export interface iUser {
       id: string;
-      firstName: string;
-      middleName: string;
-      lastName: string;
-    //   ratings: number;
-    //   isCompleted: boolean;
-    //   released: Date;
-    //   genres: string[]
+      Type: string;
+      Name: string;
+      Level: number;
+      dateOb: Date;
+      Equip: boolean;
   }
 
 

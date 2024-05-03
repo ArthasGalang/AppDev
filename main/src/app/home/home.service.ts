@@ -3,6 +3,7 @@ import { addDoc, collection, getFirestore, getDocs, updateDoc, doc, deleteDoc } 
 import { initializeApp } from 'firebase/app';
 import { environment } from 'src/environments/environment';
 import { User, iUser } from './home.model'
+import { DatePipe } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -38,9 +39,10 @@ export class HomeService {
     try {
 
       const docRefM1= await addDoc(collection(firestore,"users"),{
-        firstName: user.firstName,
-        middleName: user.middleName,
-        lastName: user.lastName,
+        Type: user.Type,
+        Name: user.Name,
+        Level: user.Level,
+        dateOb: user.dateOb,
       });
       console.log("Document written with ID: ", docRefM1.id)
     } catch (e){
@@ -54,7 +56,7 @@ export class HomeService {
 
     try{
       const docRef = doc(firestore, "users", user.id);
-      await updateDoc(docRef, {firstName: user.firstName, middleName: user.middleName, lastName: user.lastName});
+      await updateDoc(docRef, {Type: user.Type, Name: user.Name, Level: user.Level, dateOb: user.dateOb});
     } catch (e){
       console.error ("Error adding document: ", e);
     }
